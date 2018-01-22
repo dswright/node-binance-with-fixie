@@ -10,7 +10,7 @@ module.exports = function() {
 	'use strict';
 	const WebSocket = require('ws');
 	const request = require('request');
-	const fixieRequest = require('request').defaults({'proxy': process.env.FIXIE_URL});
+	const fixieRequest = request.defaults({'proxy': process.env.FIXIE_URL});
 	const crypto = require('crypto');
 	const base = 'https://api.binance.com/api/';
 	const wapi = 'https://api.binance.com/wapi/';
