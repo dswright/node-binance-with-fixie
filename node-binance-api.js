@@ -10,7 +10,7 @@ module.exports = function() {
 	'use strict';
 	const WebSocket = require('ws');
 	const request = require('request');
-	const request = require('request').defaults({'proxy': process.env.FIXIE_URL});
+	const fixieRequest = require('request').defaults({'proxy': process.env.FIXIE_URL});
 	const crypto = require('crypto');
 	const base = 'https://api.binance.com/api/';
 	const wapi = 'https://api.binance.com/wapi/';
@@ -73,7 +73,7 @@ module.exports = function() {
 				'X-MBX-APIKEY': options.APIKEY
 			}
 		};
-		request(opt, function(error, response, body) {
+		fixieRequest(opt, function(error, response, body) {
 			if ( !callback ) return;
 
 			if ( error )
@@ -105,7 +105,7 @@ module.exports = function() {
 				'X-MBX-APIKEY': options.APIKEY
 			}
 		};
-		request(opt, function(error, response, body) {
+		fixieRequest(opt, function(error, response, body) {
 			if ( !callback ) return;
 
 			if ( error )
